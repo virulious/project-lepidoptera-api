@@ -10,14 +10,14 @@ class Species(models.Model):
       User,
       on_delete=models.CASCADE
   )
-  upper = models.ForeignKey(
+  genus = models.ForeignKey(
       Genus,
       on_delete=models.CASCADE
   )
 
   def __str__(self):
     # This must return a string
-    return f"This is {self.name} and it belongs to the Genus {self.upper}"
+    return f"This is {self.name} and it belongs to the Genus {self.genus}"
 
 
   def as_dict(self):

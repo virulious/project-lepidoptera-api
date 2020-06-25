@@ -8,25 +8,26 @@ from django.contrib.auth import get_user, authenticate, login, logout
 from django.middleware.csrf import get_token
 
 from ..models.genus import Genus
-from ..serializers import SpeciesSerializer, UserSerializer
+from ..serializers import SpeciesSerializer, UserSerializer, GenusSerializer
 
 #Create views
 class Genus(generics.ListCreateAPIView):
   permission_classes=(IsAuthenticated,)
   def get(self, request):
       """Index request"""
+      print(Genus)
       # genus = Genus.objects.all()
       genus = Genus.objects.filter(owner=request.user.id)
-      data = SpeciesSerializer(genus, many=True).data
+      data = GenusSerializer(genus, many=True).data
       return Response(data)
 
-  serializer_class = SpeciesSerializer
+  serializer_class = GenusSerializer
   def post(self, request):
       """Create request"""
       # Add user to request object
       request.data['genus']['owner'] = request.user.id
       # Serialize/create genus
-      genus = SpeciesSerializer(data=request.data['genus'])
+      genus = GenusSerializer(data=request.data['genus'])
       if genus.is_valid():
           m = genus.save()
           return Response(genus.data, status=status.HTTP_201_CREATED)
@@ -38,7 +39,7 @@ class GenusDetail(generics.RetrieveUpdateDestroyAPIView):
     def get(self, request, pk):
         """Show request"""
         genus = get_object_or_404(Genus, pk=pk)
-        data = MangoSerializer(genus).data
+        data = GenusSerializer(genus).data
         # Only want to show owned mangos?
         # if not request.user.id == data['owner']:
         # raise PermissionDenied('Unauthorized, you do not own this genus')

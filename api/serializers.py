@@ -15,7 +15,7 @@ class MangoSerializer(serializers.ModelSerializer):
 class SpeciesSerializer(serializers.ModelSerializer):
   class Meta:
     model = Species
-    fields = ('id', 'name', 'description', 'owner')
+    fields = ('id', 'name', 'description', 'genus', 'owner')
 
 class GenusSerializer(serializers.ModelSerializer):
   class Meta:

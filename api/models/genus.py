@@ -1,5 +1,7 @@
 from django.db import models
 
+from .user import User
+
 class Genus(models.Model):
   name = models.CharField(max_length=50)
 
