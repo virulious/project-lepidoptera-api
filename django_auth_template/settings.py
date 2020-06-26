@@ -18,6 +18,11 @@ import dj_database_url
 from dotenv import load_dotenv, find_dotenv
 load_dotenv(find_dotenv())
 
+# Simplified static file serving.
+# https://warehouse.python.org/project/whitenoise/
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 # Determine if we are on local or production
 # Development: Use the DB name defined in the `.env` file
 # Production: Let dj_database_url figure it out based on the config
@@ -72,6 +77,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'django_auth_template.urls'
