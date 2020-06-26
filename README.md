@@ -29,4 +29,8 @@ Images
 
 ERD:
 
+[ERD](https://imgur.com/a/HmzECFI)
+
 Wireframe:
+
+[Wireframe](https://imgur.com/a/Iyy9msw)
