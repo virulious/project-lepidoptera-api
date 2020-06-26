@@ -25,7 +25,7 @@ class Genus(generics.ListCreateAPIView):
   def post(self, request):
       """Create request"""
       # Add user to request object
-      request.data['genus']['owner'] = request.user.id
+      # request.data['genus']['owner'] = request.user.id
       # Serialize/create genus
       genus = GenusSerializer(data=request.data['genus'])
       if genus.is_valid():
