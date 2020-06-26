@@ -10,7 +10,7 @@ class Genus(models.Model):
     return f"The Genus {self.name}"
 
   def as_dict(self):
-    """Returns dictionary version of Mango models"""
+    """Returns dictionary version of Genus models"""
     return {
         'id': self.id,
         'name': self.name

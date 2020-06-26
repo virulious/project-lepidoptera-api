@@ -1,16 +1,10 @@
 from django.contrib.auth import get_user_model
 from rest_framework import serializers
 
-from .models.mango import Mango
 from .models.species import Species
 from .models.user import User
 from .models.genus import Genus
 
-
-class MangoSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Mango
-        fields = ('id', 'name', 'color', 'ripe', 'owner')
 
 class SpeciesSerializer(serializers.ModelSerializer):
   class Meta:

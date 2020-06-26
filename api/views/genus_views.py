@@ -40,7 +40,7 @@ class GenusDetail(generics.RetrieveUpdateDestroyAPIView):
         """Show request"""
         genus = get_object_or_404(Genus, pk=pk)
         data = GenusSerializer(genus).data
-        # Only want to show owned mangos?
+        # Only want to show owned Genus?
         # if not request.user.id == data['owner']:
         # raise PermissionDenied('Unauthorized, you do not own this genus')
         return Response(data)
@@ -68,7 +68,7 @@ class GenusDetail(generics.RetrieveUpdateDestroyAPIView):
         # Add owner to data object now that we know this user owns the resource
         request.data['genus']['owner'] = request.user.id
         # Validate updates with serializer
-        ms = MangoSerializer(genus, data=request.data['genus'])
+        ms = GenusSerializer(genus, data=request.data['genus'])
         if ms.is_valid():
             ms.save()
             print(ms)
