@@ -18,6 +18,17 @@ Technology
 2. PSQL
 3. CORS
 
+Routes
+
+- /genus
+- /genus/<pk>
+- /species
+- /species/<pk>
+- /sign-up
+- /sign-in
+- /sign-out
+- /change-pw
+
 Unsolved Problems
 
 - Populating Order Lepidoptera
