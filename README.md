@@ -9,7 +9,8 @@ Links
 
 Information
 
-An app for tracking the Order Lepidoptera and creating new species models
+An app for tracking the Order Lepidoptera and creating new species models.
+Catagorizes the Order Lepidoptera and shows information on species
 
 
 Technology
