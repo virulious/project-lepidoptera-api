@@ -15,9 +15,8 @@ class Genus(generics.ListCreateAPIView):
   permission_classes=(IsAuthenticated,)
   def get(self, request):
       """Index request"""
-      print(Genus)
-      # genus = Genus.objects.all()
-      genus = Genus.objects.filter(owner=request.user.id)
+      genus = Genus.objects.all()
+      # genus = Genus.objects.filter(owner=request.user.id)
       data = GenusSerializer(genus, many=True).data
       return Response(data)
 
@@ -71,6 +70,5 @@ class GenusDetail(generics.RetrieveUpdateDestroyAPIView):
         ms = GenusSerializer(genus, data=request.data['genus'])
         if ms.is_valid():
             ms.save()
-            print(ms)
             return Response(ms.data)
         return Response(ms.errors, status=status.HTTP_400_BAD_REQUEST)
