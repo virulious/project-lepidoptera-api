@@ -15,7 +15,7 @@ class Genus(generics.ListCreateAPIView):
   permission_classes=(IsAuthenticated,)
   def get(self, request):
       """Index request"""
-      genus = Genus.objects.all()
+      genus = Genus.all()
       # genus = Genus.objects.filter(owner=request.user.id)
       data = GenusSerializer(genus, many=True).data
       return Response(data)
