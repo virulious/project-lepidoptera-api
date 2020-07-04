@@ -7,7 +7,7 @@ from django.shortcuts import get_object_or_404
 from django.contrib.auth import get_user, authenticate, login, logout
 from django.middleware.csrf import get_token
 
-from ..models.genus import Genus
+from ..models.genus import Genera
 from ..serializers import SpeciesSerializer, UserSerializer, GenusSerializer
 
 #Create views
@@ -15,7 +15,7 @@ class Genus(generics.ListCreateAPIView):
   permission_classes=(IsAuthenticated,)
   def get(self, request):
       """Index request"""
-      genus = Genus.all()
+      genus = Genera.objects.all()
       # genus = Genus.objects.filter(owner=request.user.id)
       data = GenusSerializer(genus, many=True).data
       return Response(data)
@@ -37,7 +37,7 @@ class GenusDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes=(IsAuthenticated,)
     def get(self, request, pk):
         """Show request"""
-        genus = get_object_or_404(Genus, pk=pk)
+        genus = get_object_or_404(Genera, pk=pk)
         data = GenusSerializer(genus).data
         # Only want to show owned Genus?
         # if not request.user.id == data['owner']:
@@ -46,7 +46,7 @@ class GenusDetail(generics.RetrieveUpdateDestroyAPIView):
 
     def delete(self, request, pk):
         """Delete request"""
-        genus = get_object_or_404(Genus, pk=pk)
+        genus = get_object_or_404(Genera, pk=pk)
         if not request.user.id == genus['owner']:
             raise PermissionDenied('Unauthorized, you do not own this genus')
         genus.delete()
@@ -59,7 +59,7 @@ class GenusDetail(generics.RetrieveUpdateDestroyAPIView):
             del request.data['genus']['owner']
 
         # Locate Genus
-        genus = get_object_or_404(Genus, pk=pk)
+        genus = get_object_or_404(Genera, pk=pk)
         # Check if user is  the same
         if not request.user.id == genus['owner']:
             raise PermissionDenied('Unauthorized, you do not own this genus')
