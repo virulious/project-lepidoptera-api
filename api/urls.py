@@ -1,6 +1,6 @@
 from django.urls import path
 from .views.species_views import Species, SpeciesDetail
-from .views.genus_views import Genus, GenusDetail
+from .views.genus_views import GenusView, GenusDetail
 from .views.user_views import SignUp, SignIn, SignOut, ChangePassword
 
 urlpatterns = [
@@ -11,6 +11,6 @@ urlpatterns = [
     path('change-pw/', ChangePassword.as_view(), name='change-pw'),
     path('species/', Species.as_view(), name='species'),
     path('species/<int:pk>/', SpeciesDetail.as_view(), name='species_detail'),
-    path('genus/', Genus.as_view(), name='genus'),
+    path('genus/', GenusView.as_view(), name='genus'),
     path('genus/<int:pk>/', GenusDetail.as_view(), name='genus_detail')
 ]
