@@ -37,6 +37,7 @@ class GenusDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes=(IsAuthenticated,)
     def get(self, request, pk):
         """Show request"""
+        print('It Gets Here')
         genus = get_object_or_404(Genus, pk=pk)
         data = genus.species_set.all()
         # Only want to show owned Genus?
