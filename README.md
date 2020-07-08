@@ -2,10 +2,10 @@ Project Lepidoptera API
 
 Links
 
-- Project Lepidoptera API Repo
-- Project Lepidoptera Client Repo
-- Deployed API
-- Deployed Client
+- [Project Lepidoptera API Repo](https://github.com/virulious/project-lepidoptera-api)
+- [Project Lepidoptera Client Repo](https://github.com/virulious/project-lepidoptera-client)
+- [Deployed API](https://lepidoptera.herokuapp.com/)
+- [Deployed Client](https://virulious.github.io/project-lepidoptera-client/#/)
 
 Information
 
@@ -16,6 +16,7 @@ Catagorizes the Order Lepidoptera and shows information on species
 Technology
 
 1. Django
+2. Python3
 2. PSQL
 3. CORS
 
