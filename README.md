@@ -12,6 +12,11 @@ Information
 An app for tracking the Order Lepidoptera and creating new species models.
 Catagorizes the Order Lepidoptera and shows information on species
 
+Planning
+
+The initial plan was to first create the back end, set up models and routes.
+From there the front end would have axios calls to the backend created. After
+those were in order the components would be created.
 
 Technology
 
