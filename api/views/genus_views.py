@@ -48,7 +48,7 @@ class GenusDetail(generics.RetrieveUpdateDestroyAPIView):
     def delete(self, request, pk):
         """Delete request"""
         genus = get_object_or_404(Genus, pk=pk)
-        if not request.user.id == genus['owner']:
+        if not request.user.id == genus['owner'].id:
             raise PermissionDenied('Unauthorized, you do not own this genus')
         genus.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
