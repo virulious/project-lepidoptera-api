@@ -48,7 +48,7 @@ class SpeciesDetail(generics.RetrieveUpdateDestroyAPIView):
         """Delete request"""
         species = get_object_or_404(Species, pk=pk)
         print(request.user)
-        print(species['owner'])
+        print(species)
         if not request.user == species['owner']:
             raise PermissionDenied('Unauthorized, you do not own this species')
         species.delete()
