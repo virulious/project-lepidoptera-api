@@ -38,7 +38,7 @@ class SpeciesDetail(generics.RetrieveUpdateDestroyAPIView):
     def get(self, request, pk):
         """Show request"""
         species = get_object_or_404(Species, pk=pk)
-        data = SpeciesSerializer(species).data
+        data = SpeciesSerializer(species, many=False).data
         # Only want to show owned Genus?
         # if not request.user.id == data['owner']:
         # raise PermissionDenied('Unauthorized, you do not own this species')
