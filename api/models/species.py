@@ -25,5 +25,7 @@ class Species(models.Model):
     return {
         'id': self.id,
         'name': self.name,
-        'description': self.description
+        'description': self.description,
+        'owner': self.owner,
+        'genus': self.genus
     }
