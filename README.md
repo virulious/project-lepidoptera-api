@@ -21,14 +21,14 @@ Technology
 
 Routes
 
-- /genus
-- /genus/<pk>
-- /species
-- /species/<pk>
-- /sign-up
-- /sign-in
-- /sign-out
-- /change-pw
+- /genus/
+- /genus/:pk/
+- /species/:pk/
+- /sign-up/
+- /sign-in/
+- /sign-out/
+- /change-pw/
+- /create-species/
 
 Unsolved Problems
 
