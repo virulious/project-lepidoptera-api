@@ -9,7 +9,7 @@ from .models.genus import Genus
 class SpeciesSerializer(serializers.ModelSerializer):
   class Meta:
     model = Species
-    fields = ('id', 'name', 'description', 'genus', 'owner')
+    fields = ('id', 'name', 'description', 'owner', 'genus')
 
 class GenusSerializer(serializers.ModelSerializer):
   class Meta:
