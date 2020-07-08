@@ -70,6 +70,5 @@ class SpeciesDetail(generics.RetrieveUpdateDestroyAPIView):
         ms = SpeciesSerializer(species, data=request.data['species'])
         if ms.is_valid():
             ms.save()
-            print(ms)
             return Response(ms.data)
         return Response(ms.errors, status=status.HTTP_400_BAD_REQUEST)

@@ -60,7 +60,6 @@ class ChangePassword(generics.UpdateAPIView):
         user = request.user
         serializer = ChangePasswordSerializer(data=request.data['passwords'])
         if serializer.is_valid():
-            print(serializer)
             if not user.check_password(serializer.data['old']):
                 return Response({ 'msg': 'Wrong password'}, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
             # set_password will also hash the password
