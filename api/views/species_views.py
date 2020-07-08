@@ -11,7 +11,7 @@ from ..models.species import Species
 from ..serializers import SpeciesSerializer, UserSerializer
 
 #Create views
-class Species(generics.ListCreateAPIView):
+class SpeciesView(generics.ListCreateAPIView):
   permission_classes=(IsAuthenticated,)
   def get(self, request):
       """Index request"""
