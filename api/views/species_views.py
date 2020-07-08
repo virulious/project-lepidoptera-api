@@ -55,8 +55,8 @@ class SpeciesDetail(generics.RetrieveUpdateDestroyAPIView):
     def partial_update(self, request, pk):
         """Update Request"""
         # Remove owner from request object
-        if request.data.species.get('owner', False):
-            del request.data.species.owner
+        if request.data['species'].get('owner', False):
+            del request.data['species']['owner']
 
         # Locate Species
         species = get_object_or_404(Species, pk=pk)
@@ -65,9 +65,9 @@ class SpeciesDetail(generics.RetrieveUpdateDestroyAPIView):
             raise PermissionDenied('Unauthorized, you do not own this species')
 
         # Add owner to data object now that we know this user owns the resource
-        request.data.species.owner = request.user.id
+        request.data['species']['owner'] = request.user.id
         # Validate updates with serializer
-        ms = SpeciesSerializer(species, data=request.data.species)
+        ms = SpeciesSerializer(species, data=request.data['species'])
         if ms.is_valid():
             ms.save()
             print(ms)
