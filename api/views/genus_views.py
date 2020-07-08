@@ -37,7 +37,6 @@ class GenusDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes=(IsAuthenticated,)
     def get(self, request, pk):
         """Show request"""
-        print('It Gets Here')
         genus = get_object_or_404(Genus, pk=pk)
         species = genus.species_set.all()
         data = SpeciesSerializer(species, many=True).data
