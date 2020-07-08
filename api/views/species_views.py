@@ -54,7 +54,7 @@ class SpeciesDetail(generics.RetrieveUpdateDestroyAPIView):
 
     def partial_update(self, request, pk):
         """Update Request"""
-        # Remove owner from request object
+        # Remove owner from request object when
         if request.data.species.get('owner', False):
             del request.data.species.owner
 
